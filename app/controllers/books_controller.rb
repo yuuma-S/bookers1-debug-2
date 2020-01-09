@@ -8,15 +8,6 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
-  # GET /books/1
-  # GET /books/1.json
-  def show
-  end
-
-  # GET /books/1/edit
-  def edit
-  end
-
   # POST /books
   # POST /books.json
   def create
@@ -28,10 +19,19 @@ class BooksController < ApplicationController
     end
   end
 
+  # GET /books/1
+  # GET /books/1.json
+  def show
+  end
+
+  # GET /books/1/edit
+  def edit
+  end
+
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-    if @book.update()
+    if @book.update(book_params)
       redirect_to @book, notice: 'Book was successfully updated.'
     else
       render :edit
